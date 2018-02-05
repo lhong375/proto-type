@@ -49,5 +49,31 @@
 				"value":16
 			}
 		]
+	},
+
+	"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7086533:config": {
+		"segment_id": "7086533",
+		"params":[
+			{
+				"name": "shadowsOn",
+				"type": "boolean",
+				"value":true
+			},
+			{
+				"name": "explosionParticles",
+				"type":"integer",
+				"value":256
+			},
+			{
+				"name":"Quality_Name",
+				"type":"string",
+				"value":"High"
+			},
+			{
+				"name":"particlesRates",
+				"type":"integer",
+				"value":128
+			}
+		]
 	}
 }

@@ -1,6 +1,6 @@
 // /actions/actions.js
 
-import { CHANGE_SAMPLE_RATE, FETCH_APP_INFO, CHANGE_A_CONFIGURATION, REQUEST_APP_INFO, RECEIVE_APP_INFO, INVALIDATE_APP_INFO, SAVING_CONFIGURATIONS } from "../constants/action-types";
+import { CHANGE_SAMPLE_RATE, FETCH_APP_INFO, CHANGE_A_CONFIGURATION, REQUEST_APP_INFO, RECEIVE_APP_INFO, INVALIDATE_APP_INFO, SAVING_CONFIGURATIONS, RECEIVE_CONFIGURATIONS } from "../constants/action-types";
 
 export const fetchAppInfo = appInfoObj => ({ type: FETCH_APP_INFO, payload: appInfoObj});
 export const changeSampleRate = sampleRateObj => ({ type: CHANGE_SAMPLE_RATE, payload: sampleRateObj });

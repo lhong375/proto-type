@@ -10,6 +10,7 @@ const localOnly = false; //todo: should be app state when you start the app-serv
 const localHost = "http://localhost:3000";
 const projectId = "3690c1cf-845f-4383-a4f4-368dea656444";
 const platform = "android";
+const defaultSegmentId = "6535903";
 
 export const getConfigurations = function (local = localOnly) {
     if(!local) {
@@ -20,8 +21,8 @@ export const getConfigurations = function (local = localOnly) {
     }
 }
 
-export function saveConfigurations(segmentId = "6535903", params) {
-    console.log("transport.saveConfigurations #"+segmentId+" localOnly?"+localOnly, params);
+export function saveConfigurations(dbKey = "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903:config", segmentId = defaultSegmentId, params) {
+    console.log("transport.saveConfigurations #"+dbKey+" localOnly?"+localOnly, segmentId, params);
     if(localOnly) {
         //actually a no-op
         return function(dispatch) {
@@ -30,8 +31,7 @@ export function saveConfigurations(segmentId = "6535903", params) {
     }
     return function(dispatch) {
         dispatch(savingConfigurations(projectId))
-        let configId = "auto-tune:"+projectId+":"+platform+":segments:"+segmentId+":config"; //auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903:config
-        let url = localHost+'/saveConfigurations/'+configId;
+        let url = localHost+'/saveConfigurations/'+dbKey;
         console.log("url:"+url);
         let newConfig = Object.assign({}, 
             {
@@ -39,13 +39,13 @@ export function saveConfigurations(segmentId = "6535903", params) {
                 params: params
             }
         );
-        let reqH = new Headers();
+        let reqH = new Headers({"content-type": "application/json"});
         let reqInit = {
             method: 'POST',
             headers : reqH,
             mode : 'cors',
             cache: 'default',
-            body: {'dbKey':configId, 'newConfig': JSON.stringify(newConfig) }
+            body: JSON.stringify({'dbKey':dbKey, 'newConfig': newConfig })
         };
         let testReq = new Request(url, reqInit);
         return fetch(testReq).
@@ -54,7 +54,7 @@ export function saveConfigurations(segmentId = "6535903", params) {
             error => console.error('saveConfigurations error!!!', error)
         )
         .then(json => 
-            dispatch(receiveConfigurations(segmentId, projectId, platform, JSON.parse(json), false))
+            dispatch(receiveConfigurations(segmentId, projectId, platform, json, false))
         )
     }
 }

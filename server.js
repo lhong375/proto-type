@@ -29,8 +29,9 @@ var testObj = {
 	key2 : value2
 }
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+var jsonParser = bodyParser.json();
 
 app.use (
 	function (req, res, next) {
@@ -48,35 +49,43 @@ app.use (
 	}
 );
 
-app.post('/saveConfigurations/:id', function(req, res, next) {
+app.post('/saveConfigurations/:id', jsonParser, function(req, res, next) {
   console.log("server /saveConfigurations/"+req.params.id);
   let newConfig = req.body.newConfig;
   let dbKey = req.body.dbKey;
-  console.log("will save new config for key#"+dbKey, newConfig);
-  client.set(dbKey, newConfig, function(err, reply) {
-    if(err) {
-      console.error(err);
-      res.statusCode = 404;
-      res.json(err);
-      res.end();
-    }
-    console.log("save new config, success!");
-    client.get(dbkey, function(err, reply) {
+  console.log("will save new config for dbKey#"+dbKey, newConfig);
+  if(dbKey && newConfig) {
+    let newConfigStr = JSON.stringify(newConfig);
+    client.set(dbKey, newConfigStr, function(err, reply) {
       if(err) {
         console.error(err);
-        res.statusCode = 404;
+        res.statusCode = 400;
         res.json(err);
         res.end();
       }
-      console.log("after saving, retreive lates config, success!");
-      var res = Object.assign({}, {
-        [dbKey]: reply
-      });
-      res.json(reply);
-      res.end();
-    }
-    );
-  });
+      console.log("save new config, success!");
+      client.get(dbKey, function(err, reply) {
+        if(err) {
+          console.error(err);
+          res.statusCode = 400;
+          res.json(err);
+          res.end();
+        }
+        console.log("after saving, retreive lates config, success!");
+        var replyJson = Object.assign({}, {
+          [dbKey]: JSON.parse(reply)
+        });
+        res.json(replyJson);
+        res.end();
+      }
+      );
+    });
+  } else {
+    res.statusCode = 400;
+    res.json("missing dbKey or newConfig");
+    res.end();
+  }
+  
 });
 
 app.get('/getAppInfo/:id', function(req, res, next){
