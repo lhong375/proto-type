@@ -1,31 +1,49 @@
 import React from 'react';
-import CreateTodo from './create-todo';
-import TodosList from './todos-list';
+import { testHealth } from '../transports/transport';
 
-const todos = [
-{
-    task: 'make React tutorial',
-    isCompleted: false
-},
-{
-    task: 'eat dinner',
-    isCompleted: true
-}
-];
+import AppInfo from './app-info';
+import ConfigurationForSegments from './configuration-for-segments';
 
+
+const App = () => (
+  <div >
+    <h2>Demo App</h2>
+    <div >   
+      <AppInfo />
+    </div>
+    <div>
+        <ConfigurationForSegments />
+    </div>
+    <div>
+         <button onClick={testHealth.bind(this, false)}>send a reqeust</button>
+    </div>
+  </div>
+);
+export default App;
+
+/*
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-
+        const appInfo = store.getState().appInfo;
         this.state = {
-            todos
+            todos, appInfo
         };
     }
 
     render() {
         return (
             <div>
-                <h1>React ToDos App</h1>
+                <h1>React Demo App</h1>
+
+                <AppInfo appInfo={store.getState().appInfo} store={store}/>
+
+
+
+
+                <button onClick={this.onClickButton.bind(this)}>send a reqeust</button>
+
+
                 <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
                 <TodosList
                     todos={this.state.todos}
@@ -35,6 +53,26 @@ export default class App extends React.Component {
                 />
             </div>
         );
+    }
+
+    onClickButton() {
+        let url = 'http://localhost:3000/health';
+        let reqH = new Headers();
+        let reqInit = {
+            method: 'GET',
+            headers : reqH,
+            mode : 'cors',
+            cache: 'default'
+        };
+        let testReq = new Request(url, reqInit);
+        fetch(testReq)
+        .then((resp) => resp.json())
+        .then(function(data) {
+            console.log("DATA:", data);
+        })
+        .catch(function(error) {
+            console.error("ERROR!", error);
+        })
     }
 
     toggleTask(task) {
@@ -62,3 +100,16 @@ export default class App extends React.Component {
         this.setState({ todos: this.state.todos });
     }
 }
+*/
+
+/*
+const todos = [
+{
+    task: 'make React tutorial',
+    isCompleted: false
+},
+{
+    task: 'eat dinner',
+    isCompleted: true
+}
+];*/

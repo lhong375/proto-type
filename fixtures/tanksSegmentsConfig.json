@@ -1,0 +1,53 @@
+{
+	"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:default_config": {
+		"segment_id":null,
+		"params":[
+			{
+				"name":"shadowsOn",
+				"type":"boolean",
+				"value":false
+			},
+			{
+				"name":"explosionParticles",
+				"type":"integer",
+				"value":32
+			},
+			{
+				"name":"Quality_Name",
+				"type":"string",
+				"value":"Normal"
+			},
+			{
+				"name":"particlesRates",
+				"type":"integer",
+				"value":32
+			}
+		]
+	},
+	
+	"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903:config": {
+		"segment_id":"6535903",
+		"params":[
+			{
+				"name":"shadowsOn",
+				"type":"boolean",
+				"value":false
+			},
+			{
+				"name":"explosionParticles",
+				"type":"integer",
+				"value":32
+			},
+			{
+				"name":"Quality_Name",
+				"type":"string",
+				"value":"Low"
+			},
+			{
+				"name":"particlesRates",
+				"type":"integer",
+				"value":16
+			}
+		]
+	}
+}

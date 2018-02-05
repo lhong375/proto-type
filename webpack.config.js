@@ -14,7 +14,7 @@ module.exports = {
     },
     resolve: {
         modulesDirectories: ['node_modules', 'src'],
-        extensions: ['', '.js']
+        extensions: ['', '.js', '.json', '.jsx']
     },
     module: {
         loaders: [
@@ -22,6 +22,10 @@ module.exports = {
             test: /\.jsx?$/,
             exclude: /node_modules/,
             loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+        },
+        {
+        test: /\.json$/,
+        loader: 'json-loader'
         }
         ]
     },

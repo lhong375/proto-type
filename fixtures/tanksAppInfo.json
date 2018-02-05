@@ -1,0 +1,12 @@
+{
+	"appInfo": {
+		"appName": "Tanks",
+	  	"platfrom": "Android",
+	  	"bundleId": "com.lindasoft.tanks",
+	  	"appVersion": "1.0",
+	  	"sampleRate": 50,
+	  	"analyticsProjectId": "3690c1cf-845f-4383-a4f4-368dea656444",
+	  	"unityVersion": "5.3",
+	  	"pluginVersion": "1.0.0"
+	}
+}

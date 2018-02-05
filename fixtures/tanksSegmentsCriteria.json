@@ -1,0 +1,30 @@
+{
+	"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903":
+	"{\"id\":\"6535903\",\"name\":\"Low RAM\",\"expected_fps\":\"30\",\"criteria\":[{\"name\":\"RAM\",\"operator\":\"includes\",\"value\":\"[0 MB - 2 GB)\",\"jexl\":\"((device.ram >= 0 and device.ram < 2048))\"}]}",
+	"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7086533":
+	"{\"id\":\"7086533\",\"name\":\"High RAM\",\"expected_fps\":0,\"criteria\":[{\"name\":\"RAM\",\"operator\":\"includes\",\"value\":\"[4 GB - 256 GB)\",\"jexl\":\"((device.ram >= 4096 and device.ram < 262144))\"}]}",
+	"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7094383":
+	"{\"id\":\"7094383\",\"name\":\"Med RAM\",\"expected_fps\":0,\"criteria\":[{\"name\":\"RAM\",\"operator\":\"includes\",\"value\":\"[2 GB - 4 GB)\",\"jexl\":\"((device.ram >= 2048 and device.ram < 4096))\"}]}",
+}
+
+/*
+1) 
+ 2) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:default_config"
+ 3) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments"
+ 4) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios"
+ 5) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:default_config"
+ 6) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7086533"
+ 7) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments" ???
+ 8) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments:6535903:config"
+ 9) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments:7086533"
+10) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7094383:config"
+11) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903"
+12) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7086533:config"
+13) "test"
+14) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments:6535903"
+15) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments:7094383:config"
+16) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments:7094383"
+17) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android"
+18) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:ios:segments:7086533:config"
+19) "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:7094383"
+*/
