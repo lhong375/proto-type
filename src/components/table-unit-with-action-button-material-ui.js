@@ -74,7 +74,7 @@ export class TableUnitWithActionButtonMUI extends React.Component {
 
     render() {
         return (
-            <TableRowColumn>
+            <TableRowColumn style={{textAlign: 'center'}}>
             {this.renderValue()}
             {this.renderAction()}
             </TableRowColumn>

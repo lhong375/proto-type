@@ -63,11 +63,11 @@ class ConfigurationForASegment extends React.Component {
                   <TableHeader >
                     <TableRow>
                       {
-                        this.props.params.map(param => <TableHeaderColumn>{param.name}</TableHeaderColumn>)
+                        this.props.params.map(param => <TableHeaderColumn style={{textAlign: 'center'}}>{param.name}</TableHeaderColumn>)
                       }
                     </TableRow>
                   </TableHeader>
-                  <TableBody displayRowCheckbox={false}>
+                  <TableBody >
                     <TableRow selected={this.isSelected(0)}>
                     {
                       this.props.params.map( (param, idx) => 
