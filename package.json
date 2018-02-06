@@ -1,5 +1,5 @@
 {
-  "name": "react-todos",
+  "name": "proto-types",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,8 +13,9 @@
     "body-parser": "^1.18.2",
     "express": "^4.13.4",
     "lodash": "^4.2.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "material-ui": "^0.20.0",
+    "react": "^0.14.9",
+    "react-dom": "^0.14.9",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

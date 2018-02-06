@@ -4,16 +4,26 @@ import { testHealth } from '../transports/transport';
 import AppInfo from './app-info';
 import ConfigurationForSegments from './configuration-for-segments';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 const App = () => (
   <div >
     <h2>Demo App</h2>
-    <div >   
-      <AppInfo />
+    <div>
+        <MuiThemeProvider>   
+            <AppInfo />
+        </MuiThemeProvider>
     </div>
     <div>
-        <ConfigurationForSegments />
+        <MuiThemeProvider>
+            <ConfigurationForSegments />
+        </MuiThemeProvider>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <div>
          <button onClick={testHealth.bind(this, false)}>send a reqeust</button>
     </div>

@@ -24,8 +24,8 @@ module.exports = {
             loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
         },
         {
-        test: /\.json$/,
-        loader: 'json-loader'
+            test: /\.json$/,
+            loader: 'json-loader'
         }
         ]
     },

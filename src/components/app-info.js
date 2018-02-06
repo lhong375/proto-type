@@ -5,6 +5,12 @@ import AppInfoHeader from './app-info-list-header';
 import AppInfoItem from './app-info-item';
 import {fetchAppInfo} from "../transports/transport"
 
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
+//import Checkbox from 'material-ui/Checkbox';
+//import Toggle from 'material-ui/Toggle';
+
 
 const mapStateToProps = state => {
   return { appInfo: state.appInfoReducer.appInfo };
@@ -18,6 +24,13 @@ const mapDispatchToProps = (dispatch, state) => {
     }
 };
 
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+};
+
 class ConnectedAppInfo extends React.Component {
     componentDidMount() {
         console.log("dispatch fetchAppInfo");
@@ -26,18 +39,21 @@ class ConnectedAppInfo extends React.Component {
 
     render() {
         return (
-          <table>
-            <AppInfoHeader keys={['key','value']}/>
-            <tbody>
-            {_.keys(this.props.appInfo).map(
-              key => {
-                        return <AppInfoItem id={key} value={this.props.appInfo[key]} 
-                            editable={ key==="sampleRate"?true:false }
-                        />
-               }
-            )}
-            </tbody>
-           </table>
+            <div>
+                <div style={styles.root}>
+                    <List>
+                        <Subheader>App Info</Subheader>
+                        {
+                            _.keys(this.props.appInfo).map(
+                            key => {
+                                return <ListItem primaryText={key} secondaryText={this.props.appInfo[key]}/>
+                            }
+                            )
+                        }
+                        <Divider />
+                    </List>
+                </div>
+            </div>
         ); 
     }
 }
