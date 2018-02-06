@@ -22,7 +22,7 @@ export const getConfigurations = function (local = localOnly) {
 }
 
 export function saveConfigurations(dbKey = "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903:config", segmentId = defaultSegmentId, params) {
-    console.log("transport.saveConfigurations #"+dbKey+" localOnly?"+localOnly, segmentId, params);
+    //console.log("transport.saveConfigurations #"+dbKey+" localOnly?"+localOnly, segmentId, params);
     if(localOnly) {
         //actually a no-op
         return function(dispatch) {
@@ -32,7 +32,7 @@ export function saveConfigurations(dbKey = "auto-tune:3690c1cf-845f-4383-a4f4-36
     return function(dispatch) {
         dispatch(savingConfigurations(projectId))
         let url = localHost+'/saveConfigurations/'+dbKey;
-        console.log("url:"+url);
+        //console.log("url:"+url);
         let newConfig = Object.assign({}, 
             {
                 segmentId: segmentId,
@@ -67,7 +67,7 @@ export function fetchAppInfo(projectId = "3690c1cf-845f-4383-a4f4-368dea656444",
         dispatch(requestAppInfo(projectId))
         let param_id = "auto-tune:"+projectId+":"+platform; //"auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android"
         let url = localHost+'/getAppInfo/'+param_id;
-        console.log("url:"+url);
+        //console.log("url:"+url);
         let reqH = new Headers();
         let reqInit = {
             method: 'GET',

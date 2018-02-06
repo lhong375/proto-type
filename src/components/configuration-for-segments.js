@@ -21,9 +21,9 @@ const mapDispatchToProps = (dispatch, state) => {
 class ConfigurationForASegment extends React.Component {
 
     render() {//note the this.props.dbKey is the full dbKey: "auto-tune:3690c1cf-845f-4383-a4f4-368dea656444:android:segments:6535903:config"
-        console.log("ConfigurationForASegment, params:", this.props.params);
+        //console.log("ConfigurationForASegment, params:", this.props.params);
         let headers = this.props.params.map(param => param.name);
-        let segmentName = this.props.dbKey.indexOf('default_config')>0 ? 'Default Config' : 'Segment: '+this.props.segmentId;
+        let segmentName = this.props.dbKey.indexOf('default_config')>0 ? 'Default Config' : this.props.params[2].name+" : "+this.props.params[2].value;
         return (
             <div>
               <h3>{segmentName}</h3>
@@ -49,7 +49,7 @@ class ConfigurationForASegment extends React.Component {
 
 
 const ConnectedConfigurationForSegments = ({ configurations, saveConfigurations }) => {
-    console.log("configurations", configurations);
+    //console.log("configurations", configurations);
     return (
       <div>
         {

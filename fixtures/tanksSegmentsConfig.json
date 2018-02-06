@@ -21,6 +21,11 @@
 				"name":"particlesRates",
 				"type":"integer",
 				"value":32
+			},
+			{
+				"name":"numberOfTanks",
+				"type":"integer",
+				"value":2
 			}
 		]
 	},
@@ -47,6 +52,11 @@
 				"name":"particlesRates",
 				"type":"integer",
 				"value":16
+			},
+			{
+				"name":"numberOfTanks",
+				"type":"integer",
+				"value":2
 			}
 		]
 	},
@@ -73,6 +83,11 @@
 				"name":"particlesRates",
 				"type":"integer",
 				"value":128
+			},
+			{
+				"name":"numberOfTanks",
+				"type":"integer",
+				"value":2
 			}
 		]
 	}
